@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<Title>FluentDapperLite</Title>
 		<Authors>kalilistic</Authors>
-		<Description>A helper library for working with LiteDB.</Description>
+		<Description>A small helper library to use with SQLite, Dapper, FluentMigrator, and AutoMapper.</Description>
 		<RepositoryUrl>https://github.com/kalilistic/FluentDapperLite</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>icon.png</PackageIcon>

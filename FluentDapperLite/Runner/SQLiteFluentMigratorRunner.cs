@@ -15,7 +15,14 @@ public static class SQLiteFluentMigratorRunner
     /// Runs the migration scripts located in the executing assembly, targeting the SQLite database specified by the data source.
     /// </summary>
     /// <param name="dataSource">The data source for the SQLite database.</param>
-    public static void Run(string dataSource)
+    public static void Run(string dataSource) => Run(dataSource, Assembly.GetCallingAssembly());
+
+    /// <summary>
+    /// Runs the migration scripts located in the provided assembly, targeting the SQLite database specified by the data source.
+    /// </summary>
+    /// <param name="dataSource">The data source for the SQLite database.</param>
+    /// <param name="assemblyToScan">The assembly to scan for migration scripts.</param>
+    public static void Run(string dataSource, Assembly assemblyToScan)
     {
         var connectionString = $"Data Source={dataSource};Version=3;";
         var services = new ServiceCollection()
@@ -23,7 +30,7 @@ public static class SQLiteFluentMigratorRunner
             .ConfigureRunner(rb => rb
                 .AddSQLite()
                 .WithGlobalConnectionString(connectionString)
-                .ScanIn(Assembly.GetCallingAssembly()).For.Migrations())
+                .ScanIn(assemblyToScan).For.Migrations())
             .AddScoped<IVersionTableMetaData, SQLiteVersionTableMetaData>()
             .BuildServiceProvider();
         using var scope = services.CreateScope();

@@ -141,3 +141,6 @@ _NCrunch*
 
 # SQLite
 identifier.sqlite
+
+# StyleCop
+!/stylecop.json

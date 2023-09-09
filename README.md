@@ -14,10 +14,10 @@ A small helper library to use with [SQLite](https://www.sqlite.org), [Dapper](ht
 
 ```csharp
 // Check if valid SQLite database
-bool isValid = SQLiteHelper.IsValidDatabase(dataSource);
+bool isValid = SQLiteFileValidator.IsValidDatabase(dataSource);
 
 // Run FluentMigrator to execute migrations found in calling assembly
-FluentMigratorRunner.Run(dataSource);
+SQLiteFluentMigratorRunner.Run(dataSource);
 
 // Build database connection
 var databse = SQLiteDbConnectionBuilder.Build(dataSource);

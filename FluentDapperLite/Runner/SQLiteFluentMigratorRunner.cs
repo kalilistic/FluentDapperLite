@@ -31,7 +31,7 @@ public static class SQLiteFluentMigratorRunner
                 .AddSQLite()
                 .WithGlobalConnectionString(connectionString)
                 .ScanIn(assemblyToScan).For.Migrations())
-            .AddScoped<IVersionTableMetaData, SQLiteVersionTableMetaData>()
+            .AddScoped<IVersionTableMetaData, SqLiteVersionTableMetaData>()
             .BuildServiceProvider();
         using var scope = services.CreateScope();
         var runner = scope.ServiceProvider.GetRequiredService<IMigrationRunner>();

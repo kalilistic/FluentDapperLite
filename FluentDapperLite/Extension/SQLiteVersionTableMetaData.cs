@@ -9,7 +9,7 @@ using FluentMigrator.Runner.VersionTableInfo;
 /// <remarks>
 /// Using this to set more consistent field naming conventions for the versioning table.
 /// </remarks>
-public class SQLiteVersionTableMetaData : IVersionTableMetaData
+public class SqLiteVersionTableMetaData : IVersionTableMetaData
 {
     public object ApplicationContext { get; set; } = null!;
 
@@ -26,4 +26,6 @@ public class SQLiteVersionTableMetaData : IVersionTableMetaData
     public string AppliedOnColumnName => "applied_on";
 
     public bool OwnsSchema => false;
+
+    public bool CreateWithPrimaryKey => false;
 }
